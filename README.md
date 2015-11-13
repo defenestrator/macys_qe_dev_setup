@@ -16,4 +16,4 @@ It may seem like a good way to test their skills, to an outsider, but;
 - c#) Ain't this boogie a mess?
 
 So I made a naive little shell script for Macys.com to speed up the process of on-boarding new QE developers.
-
+Is anybody out there?
