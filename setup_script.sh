@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+red=$'\e[31m'
+grn=$'\e[32m'
+red_bold=$'\e[1;31m'
+yel=$'\e[33m'
+blu=$'\e[34m'
+mag=$'\e[35m'
+cyn=$'\e[36m'
+end=$'\e[0m'
 ###############################################################################
 # A shell script to help QE folk set up their Mac development environment.    #
 # An attempt to shorten the cycle between new-hire and useful asset.          #
@@ -7,11 +15,20 @@
 ###############################################################################
 # Interactively sets values for these variables before running this script    #
 # Delete your password from this file when done so you don't get compromised. #
-###############################################################################
+##########
 #
-echo -n "Enter your RACFID and press [ENTER]: "
+echo -en "
+        ${blu}This script will attempt to automate the installation and configuration
+        of as many pre-requisites to starting your new job as a QE developer
+        at${end} ${red}macys.com${end} ${blu}as is presently possible.${end}
+
+        ${red_bold}Requirement:${end} ${blu}Mac OS X Mavericks (10.9) or higher.${end}
+
+${grn}Enter your first and last name, human, then press${end} [ENTER]: "
+read HUMAN_NAME
+echo -n "${grn}Enter your RACFID and press${end} [ENTER]: "
 read RACFID
-echo -n "Enter your PASSWORD and press [ENTER]: "
+echo -n "${grn}Enter your PASSWORD and press${end} [ENTER]: "
 read PASSWORD
 GERRIT_HOST="qagerrit"
 ###############################################################################
@@ -30,7 +47,7 @@ echo $PASSWORD | sudo -S pip install git-review || echo Failed Git-Reivew instal
 ###############################################################################
 # Configure $PATH variable                                                    #
 ###############################################################################
-export PATH=/"/usr/local/bin:/usr/local/sbin:~/bin:$PATH" >> ~/.bash_profile || echo 'failed to write new path to $PATH' >> $LOG;
+export PATH=/"/usr/local/bin:/usr/local/sbin:~/bin:$PATH" >> ~/.bash_profile || echo 'failed to write new path paths to $PATH' >> $LOG;
 ###############################################################################
 # Configure RVM/Ruby                                                          #
 ###############################################################################
@@ -40,7 +57,7 @@ rvm use 2.0.0 --default || echo 'set Ruby 2.0.0 as rvm default FAILED' >> $LOG;
 # Clone Git repositories for QAA and Gerrit
 ###############################################################################
 mkdir ~/git
-git config --global user.name "Jeremy Anderson"
+git config --global user.name $HUMAN_NAME
 git config --global user.email Jeremy.Anderson@macys.com
 git config --global merge.tool kdiff3
 git config --global --add gitreview.username $RACFID
