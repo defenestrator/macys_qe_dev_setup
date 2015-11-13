@@ -17,7 +17,7 @@ GERRIT_HOST="qagerrit"
 ###############################################################################
 # Write .bash_profile and create setup.log                                                         #
 ###############################################################################
-touch ./setup.log && LOG="setup.log" && cp ./bash_profile.txt ~/.bash_profile || echo "failed to write .bash_profile" >> $LOG ;
+touch ./setup.log && LOG="setup.log" && cp ./bash_profile.sh ~/.bash_profile || echo "failed to write .bash_profile" >> $LOG ;
 ###############################################################################
 # Install Essential Dependencies                                              #
 ###############################################################################
