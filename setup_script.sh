@@ -99,3 +99,4 @@ kern.sysv.maxfiles=65536" >> /etc/sysctl.conf || echo "Failed to write /etc/sysc
 cp "/Volumes/mdc-document/QAA team Setup Installers/Ruby200Upgrade/mac/db2_v101_macos_expc.tar.gz" ~/
 tar -xvf ~/db_2v101_macosx_expc.tar.gz || echo "extract of db2 installer failed" >> $LOG;
 #cd ~/expc && sudo ./db2_install || echo "failed to install db2";
+bash ./install_ruby_gems.sh || echo "gems install script failed." >> $LOG;
