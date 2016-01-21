@@ -106,3 +106,4 @@ tar -xvf ~/db_2v101_macosx_expc.tar.gz || echo "extract of db2 installer failed"
 # There's other stuff to do, but certainly this covers a lot of it.
 # Not sure if valid?
 #cd ~/expc && sudo ./db2_install || echo "failed to install db2";
+bash ./install_ruby_gems.sh || echo "gems install script failed." >> $LOG;
