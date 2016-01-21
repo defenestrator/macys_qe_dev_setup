@@ -11,7 +11,8 @@ end=$'\e[0m'
 # A shell script to help QE folk set up their Mac development environment.
 # An attempt to shorten the cycle between new-hire and useful asset.
 # If someone wanted to iterate on this and refine it, it might make them look
-# like a star.
+# like a star. You should have installed XCode and kdiff3 manually before
+# running this script.
 #
 # Cheers to you all,
 # Jeremy Anderson
@@ -26,7 +27,10 @@ echo -en "
         of as many pre-requisites to starting your new job as a QE developer
         at${end} ${red}macys.com${end} ${blu}as is presently possible.${end}
 
-        ${red_bold}Requirement:${end} ${blu}Mac OS X Mavericks (10.9) or higher.${end}
+        ${red_bold}Requirements:${end}
+        ${blu}Mac OS X Mavericks (10.9) or higher.${end}
+        ${blu}You should manually install XCode and kdiff3 before running this script.
+        press CMD+X to abort at any time. ${end}
 
 ${grn}Enter your first and last name, human, then press${end} [ENTER]: "
 read HUMAN_NAME
@@ -106,4 +110,4 @@ tar -xvf ~/db_2v101_macosx_expc.tar.gz || echo "extract of db2 installer failed"
 # There's other stuff to do, but certainly this covers a lot of it.
 # Not sure if valid?
 #cd ~/expc && sudo ./db2_install || echo "failed to install db2";
-bash ./install_ruby_gems.sh || echo "gems install script failed." >> $LOG;
+bash ./install_ruby_gems.sh || echo "gems install script failed." >> ${LOG};
